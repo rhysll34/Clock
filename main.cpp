@@ -56,20 +56,8 @@ LRESULT WINAPI ScreenSaverProc(HWND hwnd, UINT message, WPARAM wParam,
 			InitGL( hwnd, hDC, hRC );			
 			buildClock();
 			
-			// Add an hour if DST is in effect
-//			tzset(); 
-			_tzset();
-			if(_get_daylight)
-			{
-				timeOffset = 3600;
-			}
-			else
-			{
-				timeOffset = 0;
-			}
-
-			//Initialize perspective, viewpoint, and
-			//any objects you wish to animate
+			timeOffset = 0;
+	
 
 			//create a timer that ticks every 10 milliseconds
 			SetTimer( hwnd, TIMER, 10, NULL ); 
@@ -224,17 +212,7 @@ static void drawClock(HDC hDC)
 	// 86400 seconds in a day, but we are using a 12 hour clock
 	int currentTime = cTime % 43200;
 	currentTime += timeOffset;
-	// See if we are in DST (assumes DST lasts from April 1st to October 31st)
-/*	int dayOfYear = currentTime % (86400 * 365);
-	if (dayOfYear > 80 && dayOfYear < 115)
-	{
-		// Add an hour to the time
-		currentTime += 86400;
-	}
-	else
-	{
-		currentTime -= 86400;
-	}*/
+
 	int seconds = currentTime % 60;
 	int minuteSeconds = currentTime % 3600;
 
