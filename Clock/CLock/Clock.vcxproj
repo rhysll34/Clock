@@ -70,6 +70,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\Development\Clock\Clock\Clock;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -81,6 +82,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="BroadcasterClock.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BroadcasterClock.h" />
+    <ClInclude Include="Clock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
